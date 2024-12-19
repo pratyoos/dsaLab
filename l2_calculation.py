@@ -1,9 +1,10 @@
-# Q No 1: Implement an algorithm to evaluate the given postfix expression. 
+# Q No 1: Implement an algorithm to evaluate the given postfix expression
 
 def evaluate(expr):
     stack = []
+    tokens = expr.split()
 
-    for ch in expr:
+    for ch in tokens:
         if ch.isdigit():
             stack.append(int(ch))
         elif ch in '+-*/':
