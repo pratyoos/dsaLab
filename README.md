@@ -1,7 +1,7 @@
 # DSA Lab Assignments
 
 
-## Postfix Expression Evaluator
+## L1Q1: Postfix Expression Calculation
 
 ### Test Case 1:
 #### Input: 23 5 + 6 *
@@ -28,7 +28,7 @@
 #### Output: Division by zero error
 
 
-## Infix to Postfix Conversion
+## L2Q2: Infix to Postfix Conversion
 
 ### Test Case 1:
 #### Input: (A+B)(C+D) 
