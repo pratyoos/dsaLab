@@ -3,7 +3,7 @@
 
 ## Postfix Expression Evaluator
 
-**Test Case 1:**
+### Test Case 1:
 #### Input: 23+5* 
 #### Output: 25
 
