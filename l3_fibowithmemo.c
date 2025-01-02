@@ -4,9 +4,9 @@
 #define MAX 1000
 int memo[MAX];
 
-void init_memo() {
+void initialize_memo() {
     for (int i = 0; i < MAX; i++) {
-        memo[i] = -1;
+        memo[i] = -2;
     }
 }
 
@@ -15,7 +15,7 @@ int fibo(int n) {
         return 0;
     if (n == 1) 
         return 1;
-    if (memo[n] != -1) {
+    if (memo[n] != -2) {
         return memo[n];
     }
     memo[n] = fibo(n - 1) + fibo(n - 2);
@@ -24,7 +24,7 @@ int fibo(int n) {
 
 int main() {
     int num, ans;
-    init_memo();
+    initialize_memo();
     printf("Enter a positive integer: ");
     scanf("%d", &num);
     ans = fibo(num);
