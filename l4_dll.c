@@ -34,7 +34,7 @@ void insertAtBeginning(int element) {
             first->prev = NewNode;
             first = NewNode;
         }
-        printf(" %d was inserted into the beginning of the linked list.\n", first->data);
+        printf(" %d was inserted at the beginning.\n", first->data);
     }
 }
 
@@ -50,7 +50,7 @@ void insertAtEnd(int element) {
             NewNode->prev = last;
             last = NewNode;
         }
-        printf(" %d was inserted into the end of the linked list.\n", last->data);
+        printf(" %d was inserted at the end.\n", last->data);
     }
 }
 
@@ -75,14 +75,8 @@ void insertAtSpecificPos(int element, int pos) {
             last = NewNode;
     } else {
         struct DLL *temp = first;
-        for (int i = 1; i < pos - 1; i++) {
-            if (temp == NULL) {
-                printf("Position out of bounds.\n");
-                free(NewNode);
-                return;
-            }
+        for (int i = 1; i < pos - 1; i++)
             temp = temp->next;
-        }
 
         NewNode->next = temp->next;
         NewNode->prev = temp;
@@ -132,11 +126,10 @@ int deleteFromEnd() {
 }
 
 void deleteFromSpecificPos(int pos) {
-    if (pos < 1 || first == NULL) {
-        printf("Invalid position or list is empty.\n");
-        return;
-    }
-
+    if (pos < 1) 
+        printf("Invalid position.\n");
+    if (first == NULL) 
+        printf("List is empty.\n");
     struct DLL *temp;
     if (pos == 1) {
         temp = first;
@@ -147,13 +140,8 @@ void deleteFromSpecificPos(int pos) {
             last = NULL;
     } else {
         temp = first;
-        for (int i = 1; i < pos; i++) {
-            if (temp == NULL) {
-                printf("Position out of bounds.\n");
-                return;
-            }
+        for (int i = 1; i < pos; i++)
             temp = temp->next;
-        }
 
         if (temp->prev != NULL)
             temp->prev->next = temp->next;
@@ -186,9 +174,9 @@ int main() {
     display();
     insertAtEnd(200);
     display();
-
     insertAtBeginning(500);
     display();
+
     data = deleteFromBeginning();
     if (data != -1) {
         printf(" %d was deleted from the beginning.\n", data);
@@ -205,5 +193,6 @@ int main() {
 
     // deleteFromSpecificPos(3);
     // display();
+
     return 0;
 }

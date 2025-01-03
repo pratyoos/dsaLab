@@ -136,9 +136,7 @@ int deleteFromEnd()
     {
         temp = first;
         while (temp->next != last)
-        {
             temp = temp -> next;     
-        }
         last = temp;
         temp = temp -> next;
         element = temp -> data;
