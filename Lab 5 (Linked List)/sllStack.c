@@ -1,6 +1,6 @@
-// implementation of queue using singly linked list
+// Implementation of Stack using Singly Linked List.
 
-#include <stdio.h>  
+#include <stdio.h>
 #include <stdlib.h>
 
 struct SLL
@@ -9,8 +9,7 @@ struct SLL
     struct SLL *next;
 };
 
-struct SLL *front = NULL;
-struct SLL *rear = NULL;
+struct SLL *top = NULL;
 
 struct SLL *createNode(int element)
 {
@@ -28,37 +27,34 @@ struct SLL *createNode(int element)
     }
 }
 
-void enqueue(int element)
+void push(int element)
 {
     struct SLL *NewNode = createNode(element);
     if (NewNode == NULL)
         printf("Memory allocation failed.\n");
     else
     {
-        if (front == NULL)
-        {
-            front = rear = NewNode;
-        }
+        if (top == NULL)
+            top = NewNode;
         else
         {
-            rear->next = NewNode;
-            rear = NewNode;
+            NewNode->next = top;
+            top = NewNode;
         }
-        printf(" %d was enqueued into the queue.\n", rear->data);
+        printf(" %d was pushed into the stack.\n", top->data);
     }
 }
 
-int dequeue()
+int pop()
 {
     struct SLL *temp;
     int element = -1;
-    if (front == NULL)
-        printf("Queue is empty.\n");
-
+    if (top == NULL)
+        printf("Stack is empty.\n");
     else
     {
-        temp = front;
-        front = front->next;
+        temp = top;
+        top = top->next;
         element = temp->data;
         free(temp);
     }
@@ -68,11 +64,11 @@ int dequeue()
 void display()
 {
     struct SLL *temp;
-    if (front == NULL)
-        printf("Queue is empty.\n");
+    if (top == NULL)
+        printf("Stack is empty.\n");
     else
     {
-        temp = front;
+        temp = top;
         while (temp != NULL)
         {
             printf(" %d -> ", temp->data);
@@ -87,22 +83,22 @@ int main()
     int choice, element;
     while (1)
     {
-        printf("\n1. Enqueue\n2. Dequeue\n3. Display\n4. Exit\n");
+        printf("\n1. Push\n2. Pop\n3. Display\n4. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
         switch (choice)
         {
         case 1:
-            printf("Enter the element to be enqueued: ");
+            printf("Enter the element to push: ");
             scanf("%d", &element);
-            enqueue(element);
+            push(element);
             break;
 
         case 2:
-            element = dequeue();
+            element = pop();
             if (element != -1)
-                printf(" %d was dequeued from the queue.\n", element);
+                printf(" %d was popped from the stack.\n", element);
             break;
 
         case 3:
@@ -111,9 +107,11 @@ int main()
 
         case 4:
             exit(0);
+            break;
 
         default:
             printf("Invalid choice.\n");
+            break;
         }
     }
     return 0;

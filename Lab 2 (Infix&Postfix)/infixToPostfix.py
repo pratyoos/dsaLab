@@ -1,4 +1,4 @@
-#Q No 2: Implement an algorithm to convert the given infix expression to postfix expression
+# Implementation of algorithm to convert the given infix expression to postfix expression.
 
 def get_precedence(op):
     if op in ('+', '-'):

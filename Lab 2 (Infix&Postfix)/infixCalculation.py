@@ -1,4 +1,4 @@
-# Q No 1: Implement an algorithm to evaluate the given postfix expression
+# Implementation of algorithm to evaluate the given postfix expression.
 
 def evaluate(expr):
     stack = []

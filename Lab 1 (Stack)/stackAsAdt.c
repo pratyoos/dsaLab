@@ -1,4 +1,4 @@
-//Q No 1: Structure to represent a stack as an abstract data type (ADT)
+//Structure to represent a stack as an abstract data type (ADT).
 
 #include <stdio.h>
 

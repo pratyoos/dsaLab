@@ -1,4 +1,4 @@
-// Implementation of Circular Queue
+// Implementation of Circular Queue.
 
 #include<stdio.h>
 #define MAX 5
