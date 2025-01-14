@@ -112,7 +112,7 @@ int deleteFromBeginning()
     else
     {
         temp = first;
-        first = first ->next;
+        first = first->next;
         element = temp->data;
         free(temp);
     }

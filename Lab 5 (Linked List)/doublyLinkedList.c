@@ -83,7 +83,7 @@ void insertAtSpecificPos(int element, int pos) {
         NewNode->next = temp->next;
         NewNode->prev = temp;
         if (temp->next != NULL)
-            temp->next->prev = NewNode;
+            (temp->next)->prev = NewNode;
         temp->next = NewNode;
         if (NewNode->next == NULL)
             last = NewNode;

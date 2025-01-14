@@ -1,6 +1,6 @@
 // Implementation of Queue using Singly Linked List.
 
-#include <stdio.h>  
+#include <stdio.h>
 #include <stdlib.h>
 
 struct SLL
