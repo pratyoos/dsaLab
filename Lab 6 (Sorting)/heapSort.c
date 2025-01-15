@@ -37,19 +37,24 @@ void heapSort(int arr[], int n) {
     }
 }
 
+void display(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
 int main() {
     int n, i, arr[100];
     printf("Enter the number of elements: ");
     scanf("%d", &n);
-    printf("Enter the elements: ");
+    // random number generator
     for (i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+        arr[i] = rand() % 100;
     }
+    display(arr, n);
     heapSort(arr, n);
-    printf("Sorted array: ");
-    for (i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
+    display(arr, n);
     return 0;
 }
 
