@@ -6,9 +6,9 @@ int partition(int A[], int l, int r) {
     int X = l + 1, Y = r, pivot = A[l], temp;
 
     while (X <= Y) {
-        while (A[X] <= pivot && X <= r)
+        while (X <= r && A[X] <= pivot)
             X++;
-        while (A[Y] >= pivot && Y > l)
+        while (Y > l && A[Y] >= pivot)
             Y--;
         if (X < Y) {
             temp = A[X];

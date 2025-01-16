@@ -3,17 +3,17 @@ import random
 
 def insertionSort(A, n):
     for i in range(1, n):
-        key = A[i]
+        temp = A[i]
         j = i - 1
-        while j >= 0 and A[j] > key:
+        while j >= 0 and A[j] > temp:
             A[j + 1] = A[j]
-            j -= 1
-        A[j + 1] = key
+            j = j - 1
+        A[j + 1] = temp
 
 def display(A, n):
     for i in range(n):
         print(A[i] , end=" ")
-    print()
+    print()  # to print new line after endign of loop
 
 A = []
 n = int(input("Enter n: "))

@@ -5,7 +5,9 @@ def bubbleSort(A, n):
     for i in range(n - 1):
         for j in range(n - i - 1):
             if A[j] > A[j + 1]:
-                A[j], A[j + 1] = A[j + 1], A[j]
+                temp = A[j]
+                A[j] = A[j + 1]
+                A[j + 1] = temp
 
 def display(A, n):
     for i in range(n):

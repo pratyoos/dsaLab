@@ -1,30 +1,40 @@
 import time
 import random
 
-def mergeSort(A, n):
-    if n > 1:
-        mid = n // 2
-        L = A[:mid]
-        R = A[mid:]
-        mergeSort(L, mid)
-        mergeSort(R, n - mid)
-        i = j = k = 0
-        while i < mid and j < n - mid:
-            if L[i] < R[j]:
-                A[k] = L[i]
-                i += 1
-            else:
-                A[k] = R[j]
-                j += 1
-            k += 1
-        while i < mid:
-            A[k] = L[i]
+def merge(A, l, m, r):
+    i = l
+    j = m + 1
+    k = 0
+    B = [0] * (r - l + 1)
+
+    while i <= m and j <= r:
+        if A[i] < A[j]:
+            B[k] = A[i]
             i += 1
-            k += 1
-        while j < n - mid:
-            A[k] = R[j]
+        else:
+            B[k] = A[j]
             j += 1
-            k += 1
+        k += 1
+
+    while i <= m:
+        B[k] = A[i]
+        i += 1
+        k += 1
+
+    while j <= r:
+        B[k] = A[j]
+        j += 1
+        k += 1
+
+    for i in range(l, r + 1):
+        A[i] = B[i - l]
+
+def mergeSort(A, l, r):
+    if l < r:
+        m = int((l + r) / 2)
+        mergeSort(A, l, m)
+        mergeSort(A, m + 1, r)
+        merge(A, l, m, r)
 
 def display(A, n):
     for i in range(n):
@@ -38,7 +48,7 @@ for i in range(n):
 
 start = time.time()
 display(A, n)
-mergeSort(A, n)
+mergeSort(A, 0, n - 1)
 end = time.time()
 display(A, n)
 print(f"The time taken is {end - start:f} seconds.")
