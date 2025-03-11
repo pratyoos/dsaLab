@@ -1,25 +1,22 @@
-G={
+G = {
     'A':['M','Q'],
-
     'M':['A','Z','C'],
     'Q':['A','Y','R'],
     'Z':['M'],
-
     'C':['M'],
-
     'Y':['Q'],
     'R':['Q']
-}
+} 
 def BFT(G,start):
-    stack=[]
+    stack=[] 
     visited=[]
     stack.append(start)
     while(stack):
-        popedVertex=stack.pop(0)
-        visited.append(popedVertex)
-        for neighbor in G[popedVertex]:
-            if neighbor not in visited and neighbor not in stack:
-                stack.append(neighbor)
+        poppedVertex=stack.pop(0)
+        visited.append(poppedVertex)
+        for chemeki in G[poppedVertex]:
+            if chemeki not in visited and chemeki not in stack:
+                stack.append(chemeki)
     return visited
-start= 'A'
+start ='A'
 print(BFT(G,start))

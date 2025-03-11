@@ -1,24 +1,22 @@
 G = {
-    'A': ['M', 'Q'],
-    'M': ['A', 'Z', 'C'],
-    'Q': ['A', 'Y', 'R'],
-    'Z': ['M'],
-    'C': ['M'],
-    'Y': ['Q'],
-    'R': ['Q']
-}
-
-def DFT(G, start):
-    stack = [start]
-    visited = []
-
-    while stack:
-        poppedVertex = stack.pop()
-        if poppedVertex not in visited:
-            visited.append(poppedVertex)
-            for neighbor in reversed(G[poppedVertex]):  
-                if neighbor not in visited:
-                    stack.append(neighbor)
+    'A':['M','Q'],
+    'M':['A','Z','C'],
+    'Q':['A','Y','R'],
+    'Z':['M'],
+    'C':['M'],
+    'Y':['Q'],
+    'R':['Q']
+} 
+def DFT(G,start):
+    stack=[] 
+    visited=[]
+    stack.append(start)
+    while(stack):
+        poppedVertex=stack.pop()
+        visited.append(poppedVertex)
+        for chemeki in G[poppedVertex]:
+            if chemeki not in visited and chemeki not in stack:
+                stack.append(chemeki)
     return visited
-start = 'A'
-print(DFT(G, start))
+start ='A'
+print(DFT(G,start))

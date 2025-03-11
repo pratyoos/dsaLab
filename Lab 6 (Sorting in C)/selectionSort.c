@@ -14,8 +14,9 @@ void selectionSort(int A[], int n) {
             }
         }
         if (i != pos) {
-            A[pos] = A[i];
-            A[i] = least;
+            int temp = A[i];
+            A[i] = A[pos];
+            A[pos] = temp;
         }
     }
 }
@@ -36,11 +37,11 @@ int main(){
     scanf("%d", &n);
     for (i = 0; i < n; i++)
         A[i] = rand();
-    // display(A,n);
+    display(A,n);
     start = clock();
     selectionSort(A,n);
     end = clock();
-    // display(A,n);
+    display(A,n);
     diff = end-start;
     printf("The time taken is %f seconds.\n", (double)diff/CLOCKS_PER_SEC);
     return 0;
