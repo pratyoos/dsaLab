@@ -1,4 +1,5 @@
 // heap sort in c program
+// O(nlogn)
 
 #include <stdio.h>
 #include <stdlib.h>

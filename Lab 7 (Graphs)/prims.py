@@ -1,5 +1,4 @@
 import math
-
 G = {
     'A': {'B': 3, 'C': 1},
     'B': {'A': 3, 'C': 7, 'D': 5, 'E': 1},
@@ -34,18 +33,16 @@ def prim(G, start):
     
     while len(visited) < len(G):
         currentVertex = computeLeastCostVertex(cost, visited)
-        if currentVertex is None:  # In case graph is disconnected
+        if currentVertex is None:
             break
             
         visited.append(currentVertex)
         
-        # If not the start vertex, add edge to MST
         if previous[currentVertex]:
             edge_cost = G[currentVertex][previous[currentVertex]]
             mst_edges.append((previous[currentVertex], currentVertex, edge_cost))
             total_cost += edge_cost
         
-        # Update costs to neighbors
         for neighbor in G[currentVertex]:
             if neighbor not in visited:
                 weight = G[currentVertex][neighbor]
@@ -55,11 +52,9 @@ def prim(G, start):
     
     return mst_edges, total_cost
 
-# Run Prim's algorithm
 start = 'A'
 mst_edges, total_cost = prim(G, start)
 
-# Print results
 print(f"Minimum Spanning Tree edges (starting from {start}):")
 for edge in mst_edges:
     print(f"{edge[0]} -> {edge[1]} : {edge[2]}")
